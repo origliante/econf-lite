@@ -1,0 +1,19 @@
+Error handling:
+
+* eccezioni da dBsoul, fileContainer e indexContainer
+* configSnapshot
+* configEnvironment:
+    - metodi che ritornano qualcosa in caso di errore ritornano False
+    - metodi che non ritornano in caso di errore ritornano True
+
+Atomicita' delle operazioni:
+
+Quando il BE chiama un metodo della classe ConfigManager l'operazione
+che sara' eseguita deve essere finita, i dati salvati e syncati, ecc ecc
+prima che il metodo ritorni
+
+Ogni operazione come commit, switch, generateConfig, etc
+non devono essere recoverate a meno che il non farlo comprometta
+le funzionalita' del CE: deve essere il backend a richiedere l'operazione
+
+#EOF

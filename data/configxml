@@ -1,0 +1,85 @@
+<econf version="0.1">
+
+<site>12031212921</site>
+<box>233</box>
+<profile>SA</profile> <!-- ponte, riserva, standard -->
+
+<network>
+	<!--
+	generato usando il numero camera
+	<hostname>box233.hotel.ecod</hostname>
+	-->
+
+	<!--
+	convenzione in modo da autogenerare anche il dns
+	tipo la rete è sempre 10.254.X.X
+	1.0 -> rete admin
+		.1.1 SA, DNS, etc
+
+	le camere iniziano da 2.X
+	quando aumentano le centinaia cambia la subnet
+
+	2.99 -> 3.1 ? (è fattibile in XSL ??)
+
+	SA però deve sapere ip del
+	backend, dns eccetera
+
+	<dns>
+		<priority>0</priority>
+		<search>hotel.ecod</search>
+		<nameserver>1.2.3.4</nameserver>
+	</dns>
+	-->
+
+	<!--
+	nome, ip e netmask non sono necessari
+	nome sta in xsl, netmask e ip son generati
+	da numero camera
+	-->
+	<interface>
+		<type>Wireless</type>
+		<name>eth0</name>
+		<essid>ECOD-WISP</essid>
+		<channel>1</channel>
+		<ip>1.2.4.1</ip>
+		<netmask>255.255.255.0</netmask>
+
+		<gatewaydev>yes</gatewaydev> <!-- multicast, hardcoded in XSL di if wireless -->
+
+		<gateway></gateway>
+		<!-- propagato via olsr da SA -->
+
+	</interface>
+
+	<interface>
+		<type>Alias</type>
+		<name>eth0:1</name>
+		<ip>1.7.7.1</ip>
+		<netmask>255.255.255.0</netmask>
+	</interface>
+
+	<interface>
+		<type>IPSec</type>
+		<name>ipsec0</name>
+		<encryption>AES-256</encryption>
+		<key>secret</key>
+	</interface>
+
+	<interface>
+		<type>Ethernet</type>
+		<name>eth1</name>
+		<ip>1.4.4.1</ip>
+		<netmask>255.255.255.0</netmask>
+	</interface>
+
+
+	<olsr>
+	</olsr>
+
+	<firewall>
+	</firewall>
+
+</network>
+
+
+</econf>

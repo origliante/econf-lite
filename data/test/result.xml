@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<root>
+	<elem1>
+		<elemX/>
+		<elemY/>
+		<elemZ/>
+		<elem2 param="0">
+			</elem2>
+	</elem1>
+	<elem3/>
+</root>

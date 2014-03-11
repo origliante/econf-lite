@@ -1,0 +1,18 @@
+#############
+
+main.py:
+  * signal handler
+  * varie modalita' funzionamento:
+	- first run (dalla flash) OK
+	- config update
+
+- LogWrapper, configLog:
+	* logging su engine usando API servizi engine: getService etc
+
+- ConfigGenerator, ConfigEnvironment:
+	* definire richiesta configurazione corrente in caso di corruzione db non recuperabile
+	* da valutare: scrivere metodi isXMLValid, isXSLValid di CG se utile
+
+- xsl di file di conf mancanti
+
+#EOF

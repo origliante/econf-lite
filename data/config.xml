@@ -1,0 +1,65 @@
+<econf version="0.1">
+
+<network enabled="yes" hostname="pippo.bho.org">
+
+	<resolver>
+		<dns priority="0" domain="bho.org">
+			<search domain="dev.bho.org"/>
+			<search domain="rd.bho.org"/>
+        		<nameserver address="1.2.3.4"/>
+			<nameserver address="5.6.7.8"/>
+		</dns>
+
+		<dns>
+			<priority>0</priority>
+			<search>rd.bho.org</search>
+			<nameserver>1.2.3.4</nameserver>
+		</dns>
+
+		<mappings priority="1">
+			<map hostname="localhost.localdomain" alias="localhost" address="127.0.0.1"/>
+		</mappings>
+		<!--
+		<mappings>
+			<map>
+				<hostname></hostname>
+				<alias></alias>
+				<address></address>
+			</map>
+		</mappings>-->
+	</resolver>
+
+	<interfaces>
+		<name>eth0</name>
+		<type>Wireless</type>
+		<use>Wisp</use>
+		<essid>ECOD-WISP</essid>
+		<ip>1.2.4.1</ip>
+
+		<subinterface>
+			<name>eth0:1</name>
+			<ip>1.2.3.1</ip>
+		</subinterface>
+	</interfaces>
+
+	<interfaces>
+		<name>ipsec0</name>
+		<type>IPSec</type>
+		<use>ECOD</use>
+		<encryption>AES-256</encryption>
+	</interfaces>
+
+
+</network>
+
+<system>
+	<account username="utonto2" password="x" uid="667" gid="667" realname="utente tonto 2" homedir="/home/utonto2" shell="/bin/ash"/>
+	<account username="utonto" password="x" uid="666" gid="666" realname="utente tonto" homedir="/home/utonto" shell="/bin/ksh"/>
+
+	<disk>
+		<partition>/dev/cdrom1 /mnt/cdrom1 udf,iso9660 noauto,owner,kudzu,ro 0 0</partition>
+		<partition>/dev/fd0 /mnt/floppy auto noauto,owner,kudzu 0 0</partition>
+	</disk>
+</system>
+
+</econf>
